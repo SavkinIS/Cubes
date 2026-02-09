@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectPool<T> where T : MonoBehaviour
@@ -7,9 +9,11 @@ public class ObjectPool<T> where T : MonoBehaviour
     private int _poolSize = 50;
     private Queue<T> _objectPool = new Queue<T>();
     private Transform _parent;
+    private readonly Action<T> _initializeAction;
 
-    public ObjectPool(Transform parent, T prefab)
+    public ObjectPool(Transform parent, T prefab, Action<T> initializeAction)
     {
+        _initializeAction = initializeAction;
         _prefab = prefab;
         _parent  = parent;
         InitializePool();
@@ -28,6 +32,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         T obj = UnityEngine.Object.Instantiate(_prefab, _parent);
         obj.gameObject.SetActive(false);
         _objectPool.Enqueue(obj);
+        _initializeAction?.Invoke(obj);
     }
     
     public T GetObject()
