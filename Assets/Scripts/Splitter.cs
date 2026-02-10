@@ -43,13 +43,12 @@ public class Splitter : MonoBehaviour
         {
             List<Rigidbody> colliders = new List<Rigidbody>();
             int count = Random.Range(_spawnCubesRates.x, _spawnCubesRates.y + 1);
-            count = 6;
-            
             Vector3 size = clickedCube.transform.localScale;
             float smallSize = size.x / _reduceValue;
             colliders = _cubeSpawner.CreateCubes(count, smallSize, clickedCube.transform);
             _chanceToSpawnNewCubes /= _reduceValue;
-            _detonator.Explode(colliders, clickedCube.transform);
+            Vector3 explosionPoint = clickedCube.transform.position;
+            _detonator.Explode(colliders, explosionPoint);
         }
         
         _cubeSpawner.DestroyCube(clickedCube);
