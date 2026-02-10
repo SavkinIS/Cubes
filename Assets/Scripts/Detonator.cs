@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class Detonator : MonoBehaviour
 {
-    [SerializeField] private float _explosionRadius;
-    [SerializeField] private float _explosionForce;
+    [SerializeField] private float _explosionRadius = 500f;
+    [SerializeField] private float _explosionForce = 500f;
     
-    public event Action<Detonator> OnDetonationComplete;
-
-    private void OnDestroy()
-    {
-        OnDetonationComplete = null;
-    }
-    
-    public void Explode(List<Rigidbody> rigidbodies)
+    public void Explode(List<Rigidbody> rigidbodies, Vector3 center)
     {
         foreach (Rigidbody hit in rigidbodies)
         {
-            if (hit != null &&rigidbodies != null)
+            if (hit != null && rigidbodies != null)
             {
-                hit.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+                hit.AddExplosionForce(_explosionRadius, center, _explosionRadius);
             }
         }
-
-        OnDetonationComplete?.Invoke(this);
     }
 }
