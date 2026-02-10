@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +6,13 @@ public class Detonator : MonoBehaviour
     [SerializeField] private float _explosionRadius = 500f;
     [SerializeField] private float _explosionForce = 500f;
     
-    public void Explode(List<Rigidbody> rigidbodies, Vector3 center)
+    public void Explode(List<Rigidbody> rigidbodies, Transform center)
     {
         foreach (Rigidbody hit in rigidbodies)
         {
-            if (hit != null && rigidbodies != null)
+            if (hit != null)
             {
-                hit.AddExplosionForce(_explosionRadius, center, _explosionRadius);
+                hit.AddExplosionForce(_explosionForce, center.position, _explosionRadius);
             }
         }
     }

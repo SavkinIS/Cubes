@@ -49,8 +49,7 @@ public class Splitter : MonoBehaviour
             float smallSize = size.x / _reduceValue;
             colliders = _cubeSpawner.CreateCubes(count, smallSize, clickedCube.transform);
             _chanceToSpawnNewCubes /= _reduceValue;
-            Vector3 center = clickedCube.transform.position;
-            _detonator.Explode(colliders, center);
+            _detonator.Explode(colliders, clickedCube.transform);
         }
         
         _cubeSpawner.DestroyCube(clickedCube);
