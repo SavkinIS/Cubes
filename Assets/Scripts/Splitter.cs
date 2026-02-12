@@ -14,9 +14,11 @@ public class Splitter : MonoBehaviour
 
     private RaycastLaunch _raycastLauncher;
     private int _chanceToSpawnNewCubes = 100;
+    private float _initialSize;
 
     private void Awake()
     {
+        _initialSize = _cubeSpawner.GetInitializeSize();
         _raycastLauncher = new RaycastLaunch();
     }
 
@@ -34,22 +36,26 @@ public class Splitter : MonoBehaviour
     {
         if (_raycastLauncher.TryGetClickedObject(mousePosition, out Cube clickedCube))
         {
-            SplitCube(clickedCube);
+            SplitOrExplodeCube(clickedCube);
         }
     }
 
-    private void SplitCube(Cube clickedCube)
+    private void SplitOrExplodeCube(Cube clickedCube)
     {
+        float currentSize = clickedCube.transform.localScale.x;
+        
         if (Random.Range(_reduceChanceRates.x, _reduceChanceRates.y + 1) <= _chanceToSpawnNewCubes)
         {
-            List<Rigidbody> colliders = new List<Rigidbody>();
             int count = Random.Range(_spawnCubesRates.x, _spawnCubesRates.y + 1);
-            Vector3 size = clickedCube.transform.localScale;
-            float smallSize = size.x / _sizeReductionStep;
-            colliders = _cubeSpawner.CreateCubes(count, smallSize, clickedCube.transform);
+            float smallSize = currentSize / _sizeReductionStep;
+            _cubeSpawner.CreateCubes(count, smallSize, clickedCube.transform);
             _chanceToSpawnNewCubes /= _splitReduceStep;
+        }
+        else
+        {
+            float scaleLevel = Mathf.Log(_initialSize / currentSize, _sizeReductionStep);
             Vector3 explosionPoint = clickedCube.transform.position;
-            _detonator.Explode(colliders, explosionPoint);
+            _detonator.Explode( explosionPoint, scaleLevel);
         }
         
         _cubeSpawner.DestroyCube(clickedCube);

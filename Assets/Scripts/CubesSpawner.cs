@@ -29,25 +29,30 @@ public class CubesSpawner : MonoBehaviour
         Destroy(cube.gameObject);
     }
 
-    public List<Rigidbody> CreateCubes(int count, float size, Transform calledCubeTransform)
+    public float GetInitializeSize()
     {
-        List<Rigidbody> colliders = new List<Rigidbody>();
-        Vector3 newPosition = calledCubeTransform.position;
+        return _cubePrefab.transform.lossyScale.x;
+    }
+
+    public void CreateCubes(int count, float size, Transform calledCubeTransform)
+    {
+        List<Vector3> spawnPoints = GetSpawnPoints(calledCubeTransform.transform);
 
         for (int i = 0; i < count; i++)
         {
-            Cube cube = GetNewCube(newPosition, size);
-            colliders.Add(cube.Rigidbody);
-        }
+            Vector3 newPosition = Vector3.zero;
 
-        return colliders;
+            if (spawnPoints.Count > i)
+                newPosition = spawnPoints[i];
+
+            GetNewCube(newPosition, size);
+        }
     }
 
-    private Cube GetNewCube(Vector3 spawnPosition, float size)
+    private void GetNewCube(Vector3 spawnPosition, float size)
     {
         Cube cube = InstatiateCube();
         SpawnCube(cube, spawnPosition, size);
-        return cube;
     }
 
     private void SpawnCube(Cube cube, Vector3 spawnPosition, float size)
@@ -60,5 +65,23 @@ public class CubesSpawner : MonoBehaviour
         Cube cube = Instantiate(_cubePrefab);
         _colorChanger.UpdateColor(cube);
         return cube;
+    }
+
+    private List<Vector3> GetSpawnPoints(Transform cubeTransform)
+    {
+        float reducePosition = 2f;
+        List<Vector3> points = new List<Vector3>();
+
+        Vector3 p = cubeTransform.position;
+        float step = cubeTransform.localScale.x / reducePosition;
+
+        points.Add(new Vector3(p.x - step, p.y, p.z));
+        points.Add(new Vector3(p.x + step, p.y, p.z));
+        points.Add(new Vector3(p.x, p.y, p.z));
+        points.Add(new Vector3(p.x, p.y + step, p.z));
+        points.Add(new Vector3(p.x, p.y, p.z - step));
+        points.Add(new Vector3(p.x, p.y, p.z + step));
+
+        return points;
     }
 }
