@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d768cb507a55467285f6176c00659db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorChanger: {fileID: 0}
   _rigidbody: {fileID: 8269294006508670618}
+  _meshRenderer: {fileID: 4258081003514730853}

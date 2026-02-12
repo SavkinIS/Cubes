@@ -11,13 +11,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorChanger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cube.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CubesSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CubesSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Detonator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Detonator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntryPoint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntryPoint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnPointsHolder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnPointsHolder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Splitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Splitter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,15 +38,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10f16eb438b24f73a6b4a6c383f4ef54177000/b1/050e0023/Component.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColorChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cube.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CubesSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Detonator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RaycastLaunch.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnPointsHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Splitter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Thirdparty/Ciathyza.meta" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -110,10 +102,10 @@
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false" ignored-value-for-modified-check="12433">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false" ignored-value-for-modified-check="12417">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12433" />
+      <option name="pid" value="12417" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -143,7 +135,9 @@
       <workItem from="1770401815648" duration="6333000" />
       <workItem from="1770573923787" duration="2887000" />
       <workItem from="1770664508966" duration="5300000" />
-      <workItem from="1770742640949" duration="11957000" />
+      <workItem from="1770742640949" duration="14191000" />
+      <workItem from="1770791769358" duration="2947000" />
+      <workItem from="1770908536058" duration="2852000" />
     </task>
     <task id="LOCAL-00001" summary="Complete">
       <option name="closed" value="true" />
@@ -161,7 +155,31 @@
       <option name="project" value="LOCAL" />
       <updated>1770672518357</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1770756851990</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770756851990</updated>
+    </task>
+    <task id="LOCAL-00004" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1770757720182</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770757720182</updated>
+    </task>
+    <task id="LOCAL-00005" summary="minor Changes">
+      <option name="closed" value="true" />
+      <created>1770758665502</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770758665502</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +208,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Complete" />
     <MESSAGE value="Fix remarks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix remarks" />
+    <MESSAGE value="Changes" />
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="minor Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -616,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 1042139466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: 0}
+  m_LocalPosition: {x: 0, y: 13.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -636,7 +636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnCubesRates: {x: 2, y: 6}
   _reduceChanceRates: {x: 0, y: 100}
-  _reduceValue: 2
+  _splitReduceStep: 2
+  _sizeReductionStep: 2
   _cubeSpawner: {fileID: 1042139467}
   _detonator: {fileID: 1042139472}
   _playerInput: {fileID: 1042139471}
@@ -664,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd664451566b4f24b87c1337afd23230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionRadius: 0
+  _explosionRadius: 20
   _explosionForce: 2000
 --- !u!1 &1392016070
 GameObject:

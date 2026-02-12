@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer),  typeof(Rigidbody))]
@@ -9,6 +7,7 @@ public class Cube : MonoBehaviour
     [SerializeField] private MeshRenderer _meshRenderer;
 
     public Rigidbody Rigidbody => _rigidbody;
+    
     public MeshRenderer MeshRenderer => _meshRenderer;
 
     private void OnValidate()
@@ -22,7 +21,7 @@ public class Cube : MonoBehaviour
 
     public void UpdateBeforeSpawn(Vector3 spawnPosition, float size)
     {
-        transform.position = spawnPosition;
         transform.localScale = Vector3.one * size;
+        transform.position = spawnPosition;
     }
 }

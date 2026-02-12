@@ -6,7 +6,8 @@ public class Splitter : MonoBehaviour
 {
     [SerializeField] private Vector2Int _spawnCubesRates = new Vector2Int(2, 6);
     [SerializeField] private Vector2Int _reduceChanceRates = new Vector2Int(0, 100);
-    [SerializeField] private int _reduceValue = 2;
+    [SerializeField] private int _splitReduceStep = 2;
+    [SerializeField] private int  _sizeReductionStep = 2;
     [SerializeField] private CubesSpawner _cubeSpawner;
     [SerializeField] private Detonator _detonator;
     [SerializeField] private PlayerInput _playerInput;
@@ -44,9 +45,9 @@ public class Splitter : MonoBehaviour
             List<Rigidbody> colliders = new List<Rigidbody>();
             int count = Random.Range(_spawnCubesRates.x, _spawnCubesRates.y + 1);
             Vector3 size = clickedCube.transform.localScale;
-            float smallSize = size.x / _reduceValue;
+            float smallSize = size.x / _sizeReductionStep;
             colliders = _cubeSpawner.CreateCubes(count, smallSize, clickedCube.transform);
-            _chanceToSpawnNewCubes /= _reduceValue;
+            _chanceToSpawnNewCubes /= _splitReduceStep;
             Vector3 explosionPoint = clickedCube.transform.position;
             _detonator.Explode(colliders, explosionPoint);
         }
